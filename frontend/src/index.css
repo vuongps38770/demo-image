@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Enable class-based dark mode variant in Tailwind CSS v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand: #eb0004;
+  --color-brand-green: #10b981;
+  --color-bg-body: #ffffff;
+  
+  --animate-spin-slow: spin 10s linear infinite;
+  --animate-pulse-slow: pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    background-color: var(--color-bg-body);
+    color: #000000;
+    font-family: 'Fira Code', 'Cascadia Code', monospace;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  
+  html.dark {
+    --color-bg-body: #000000;
+    body {
+      color: #ffffff;
+    }
+  }
+
+  /* Hide default system cursor when custom studio cursor is enabled */
+  html.custom-cursor-active,
+  html.custom-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+/* Checkered transparency grid background */
+.bg-checkered {
+  background-color: #ffffff;
+  background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
+                    linear-gradient(-45deg, #f0f0f0 25%, transparent 25%),
+                    linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
+                    linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+  background-size: 14px 14px;
+  background-position: 0 0, 0 7px, 7px -7px, -7px 0px;
+}
+
+.dark .bg-checkered {
+  background-color: #050507;
+  background-image: linear-gradient(45deg, #121216 25%, transparent 25%),
+                    linear-gradient(-45deg, #121216 25%, transparent 25%),
+                    linear-gradient(45deg, transparent 75%, #121216 75%),
+                    linear-gradient(-45deg, transparent 75%, #121216 75%);
+  background-size: 14px 14px;
+  background-position: 0 0, 0 7px, 7px -7px, -7px 0px;
+}
+
+/* Custom transitions and shimmers */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* custom scrollbar for studio columns */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #eb0004;
+}
+
+/* Shimmer background animation for processing state */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.bg-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(235, 0, 4, 0) 0%,
+    rgba(235, 0, 4, 0.05) 50%,
+    rgba(235, 0, 4, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+.dark .bg-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(235, 0, 4, 0.08) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite linear;
+}

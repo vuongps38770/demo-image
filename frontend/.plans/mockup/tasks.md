@@ -1,0 +1,22 @@
+# Frontend Mockup Tasks
+
+- `[x]` 1. Init Vite React project
+  - `[x]` Create Vite project in temp directory and merge into `frontend/`
+  - `[x]` Install dependencies (Tailwind, Zustand, etc.)
+  - `[x]` Initialize Tailwind CSS
+- `[x]` 2. Set up Clean Architecture folders
+  - `[x]` Create `core/`, `data/`, `presentation/` structures
+- `[x]` 3. Implement Mock API
+  - `[x]` `api/jobs/mock.js` (Simulate WebSocket & delays)
+  - `[x]` `api/jobs/index.js`, `api/index.js`
+- `[x]` 4. Implement Atomic Components
+  - `[x]` Atoms (Button, Card, ProgressBar, Badge)
+  - `[x]` Molecules (JobTracker, FormGroup)
+  - `[x]` Organisms (CreateJobForm, JobCard, Navbar)
+- `[x]` 5. Implement Pages & State
+  - `[x]` Zustand store (`store/jobStore.js`, `store/authStore.js`, `store/themeStore.js`)
+  - `[x]` LoginPage
+  - `[x]` DashboardPage
+- `[x]` 6. Apply UI/UX Design
+  - `[x]` Tailwind styling matching `design.md`
+  - `[x]` Dark mode toggle (optional but recommended)
